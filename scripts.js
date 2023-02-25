@@ -45,8 +45,11 @@ class Calculator {
       case "*":
         computation = prev * current;
         break;
-      case "%":
+      case "/":
         computation = prev / current;
+        if (current === 0) {
+          current = "ERROR";
+        }
         break;
       default:
         return;
@@ -69,9 +72,9 @@ class Calculator {
       });
     }
     if (decimalDigits != null) {
-      return `${integerDisplay}.${decimalDigits}`
+      return `${integerDisplay}.${decimalDigits}`;
     } else {
-      return integerDisplay
+      return integerDisplay;
     }
   }
 
@@ -84,7 +87,7 @@ class Calculator {
         this.previousOperand
       )} ${this.operation}`;
     } else {
-      this.previousOperandTextElement.innerText = ''
+      this.previousOperandTextElement.innerText = "";
     }
   }
 }
